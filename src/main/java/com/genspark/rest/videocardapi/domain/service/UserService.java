@@ -9,7 +9,7 @@ public interface UserService {
     User find(Long id);
     User create(User user);
     User findBy(String email);
-    User update(Long id, User user);
-    User delete(Long id);
+    User update(User user);
+    void delete(Long id);
     void assignToken(User user);
 }
