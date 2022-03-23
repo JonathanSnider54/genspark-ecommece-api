@@ -15,7 +15,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
-    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Override
     public List<User> get() {
@@ -48,6 +47,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User update(User user) {
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        user.setTimestamp(timestamp);
         return userRepository.save(user);
     }
 
